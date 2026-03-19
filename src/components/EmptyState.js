@@ -1,32 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import colors from '../constants/colors';
+import styled from 'styled-components/native';
+
+const Container = styled.View`
+  padding: ${({ theme }) => theme.spacing.xl}px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Title = styled.Text`
+  font-size: 20px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 8px;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  text-align: center;
+  line-height: 22px;
+`;
 
 export default function EmptyState({ title, subtitle }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
-    </View>
+    <Container>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.text,
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 15,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-});

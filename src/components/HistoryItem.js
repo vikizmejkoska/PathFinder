@@ -1,52 +1,54 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
-import colors from '../constants/colors';
+import styled from 'styled-components/native';
+
+const Card = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radius.lg}px;
+  padding: ${({ theme }) => theme.spacing.lg}px;
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.colors.border};
+  margin-bottom: ${({ theme }) => theme.spacing.md}px;
+`;
+
+const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Dot = styled.View`
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  margin-right: ${({ theme }) => theme.spacing.md}px;
+`;
+
+const TextWrap = styled.View`
+  flex: 1;
+`;
+
+const Title = styled.Text`
+  font-size: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 6px;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
 
 export default function HistoryItem({ item, onPress }) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <View style={styles.row}>
-        <View style={styles.dot} />
-        <View style={styles.textWrap}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.subtitle}>{item.subtitle}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
+    <Card onPress={onPress}>
+      <Row>
+        <Dot />
+        <TextWrap>
+          <Title>{item.title}</Title>
+          <Subtitle>{item.subtitle}</Subtitle>
+        </TextWrap>
+      </Row>
+    </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: colors.border,
-    marginBottom: 12,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  dot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: colors.primary,
-    marginRight: 12,
-  },
-  textWrap: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: colors.text,
-    marginBottom: 6,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
-});

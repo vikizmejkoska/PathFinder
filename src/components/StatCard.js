@@ -1,35 +1,34 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import colors from '../constants/colors';
+import styled from 'styled-components/native';
+
+const Card = styled.View`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radius.md}px;
+  padding: ${({ theme }) => theme.spacing.md}px;
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.colors.border};
+  min-height: 86px;
+  justify-content: center;
+`;
+
+const Label = styled.Text`
+  font-size: 13px;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-bottom: 6px;
+`;
+
+const Value = styled.Text`
+  font-size: 20px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
+`;
 
 export default function StatCard({ label, value }) {
   return (
-    <View style={styles.card}>
-      <Text style={styles.label}>{label}</Text>
-      <Text style={styles.value}>{value}</Text>
-    </View>
+    <Card>
+      <Label>{label}</Label>
+      <Value>{value}</Value>
+    </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    backgroundColor: colors.surface,
-    borderRadius: 14,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: colors.border,
-    minHeight: 86,
-    justifyContent: 'center',
-  },
-  label: {
-    fontSize: 13,
-    color: colors.textSecondary,
-    marginBottom: 6,
-  },
-  value: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.text,
-  },
-});
