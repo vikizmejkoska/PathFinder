@@ -7,25 +7,25 @@ It allows users to view their current location on a map, track movement in real 
 
 1. Clone the repository:
    ```bash
-   git clone <YOUR_GITHUB_REPO_LINK>
+   git clone <https://github.com/vikizmejkoska/PathFinder.git>
 
-Open the project folder:
+2. Open the project folder:
+   ```bash
+   cd PathFinder
 
-cd PathFinder
+3. Install dependencies:
+   ```bash
+   npm install
 
-Install dependencies:
+4. Create a .env file in the project root and add:
+   ```bash
+   EXPO_PUBLIC_MAPTILER_KEY=your_maptiler_key_here
 
-npm install
+5. Start the Expo development server:
+   ```bash
+   npx expo start -c
 
-Create a .env file in the project root and add:
-
-EXPO_PUBLIC_MAPTILER_KEY=your_maptiler_key_here
-
-Start the Expo development server:
-
-npx expo start -c
-
-Open the app using Expo Go on your mobile device by scanning the QR code.
+6. Open the app using Expo Go on your mobile device by scanning the QR code.
 
 ## 2. AI tools used and how they helped
 
